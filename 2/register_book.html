@@ -1,0 +1,52 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script>
+$( document ).ready(function() {
+
+$("#book-form").submit(function() {
+    var url = "book-registration.php";
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#book-form").serialize(), 
+           success: function(data)
+           {
+               alert(data); 
+           }
+         });
+
+    return false; 
+});
+
+
+
+
+
+});
+</script>
+</head>
+<body>
+<form id="book-form" method="post" action="book-registration.php">
+		<fieldset>
+		<legend>Register Book</legend>
+	<div>
+		<label>
+			Book name:
+			<input type="text" name="bookName">
+		</label>
+	</div>
+
+	<div>
+		<label>
+		Book author:
+			<input type="text" name="bookAuthor">
+		</label>
+	</div>
+	<div>
+		<button type="submit"  name="register">Register</button>
+		</div>
+	</fieldset>
+</form>
+</body>
+</html>
